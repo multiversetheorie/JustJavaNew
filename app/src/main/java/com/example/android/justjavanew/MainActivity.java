@@ -22,6 +22,8 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
+    int pricePerCup = 5;
+    int price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,21 +51,26 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int price = quantity * 5;
-        String priceMessage = "Total: " + price + " HUF";
-        priceMessage = priceMessage + "\nThank you!";
-        displayMessage(priceMessage);
-
-        calculatePrice();
+        price = calculatePrice();
+        displayMessage(createOrderSummary());
     }
 
     /**
      * Calculates the price of the order.
-     *
-     * @param quantity is the number of cups of coffee ordered
      */
-    private void calculatePrice() {
-        int price = quantity * 5;
+    private int calculatePrice() {
+        return quantity * pricePerCup;
+    }
+
+    /**
+     * Creates and returns the order summary.
+     */
+    private String createOrderSummary () {
+        String orderSummary = "Name: Kaptain Kunal";
+        orderSummary = orderSummary + "\nQuantity: " + quantity;
+        orderSummary = orderSummary + "\nTotal: " + price + " HUF";
+        orderSummary = orderSummary + "\nThank you!";
+        return orderSummary;
     }
 
     /**
