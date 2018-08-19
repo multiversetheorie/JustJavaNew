@@ -4,4 +4,5 @@
     <string name="header_second">Quantity</string>
     <string name="header_third">Order Summary</string>
     <string name="topping_first">Whipped cream</string>
+    <string name="topping_second">Chocolate</string>
 </resources>
