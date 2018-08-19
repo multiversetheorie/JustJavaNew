@@ -11,7 +11,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Quantity"
+        android:text="@string/header_first"
+        android:textAllCaps="true" />
+
+    <CheckBox
+        android:id="@+id/whipped_cream_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:paddingLeft="24dp"
+        android:buttonTint="@color/colorPrimary"
+        android:textSize="16sp"
+        android:text="@string/topping_first"
+        android:onClick="onWhippedCreamCheckBoxClicked"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/header_second"
         android:textAllCaps="true" />
 
     <LinearLayout
@@ -49,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
-        android:text="Order Summary"
+        android:text="@string/header_third"
         android:textAllCaps="true" />
 
     <TextView

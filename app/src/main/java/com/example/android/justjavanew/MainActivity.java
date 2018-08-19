@@ -12,6 +12,7 @@ package com.example.android.justjavanew;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 /**
@@ -22,11 +23,17 @@ public class MainActivity extends AppCompatActivity {
     int quantity = 0;
     int pricePerCup = 5;
     int price;
+    boolean hasWhippedCream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void onWhippedCreamCheckBoxClicked(View view) {
+        CheckBox whippedCreamBox = findViewById(R.id.whipped_cream_checkbox);
+        hasWhippedCream = whippedCreamBox.isChecked();
     }
 
     /**
@@ -65,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private String createOrderSummary () {
         String orderSummary = "Name: Kaptain Kunal";
+        orderSummary = orderSummary + "\nAdd whipped cream? " + hasWhippedCream;
         orderSummary = orderSummary + "\nQuantity: " + quantity;
         orderSummary = orderSummary + "\nTotal: " + price + " HUF";
         orderSummary = orderSummary + "\nThank you!";

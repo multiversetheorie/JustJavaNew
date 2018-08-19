@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Monday Coffee Machine</string>
+    <string name="header_first">Toppings</string>
+    <string name="header_second">Quantity</string>
+    <string name="header_third">Order Summary</string>
+    <string name="topping_first">Whipped cream</string>
 </resources>
