@@ -5,4 +5,6 @@
     <string name="header_third">Order Summary</string>
     <string name="topping_first">Whipped cream</string>
     <string name="topping_second">Chocolate</string>
+    <string name="button_order">Order</string>
+    <string name="name_hint">Name</string>
 </resources>

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -24,16 +25,14 @@ public class MainActivity extends AppCompatActivity {
     int pricePerCup = 5;
     int price;
     boolean hasWhippedCream;
+    boolean hasChocolate;
+    String nameOfCustomer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void onWhippedCreamCheckBoxClicked(View view) {
-        CheckBox whippedCreamBox = findViewById(R.id.whipped_cream_checkbox);
-        hasWhippedCream = whippedCreamBox.isChecked();
     }
 
     /**
@@ -56,23 +55,36 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        //Get customer name from EditText name_field
+        EditText editName = findViewById(R.id.name_field);
+        nameOfCustomer = editName.getText().toString();
+        //Figures out if the customer wants whipped cream topping
+        CheckBox whippedCreamBox = findViewById(R.id.whipped_cream_checkbox);
+        hasWhippedCream = whippedCreamBox.isChecked();
+        //Figures out if the customer wants chocolate topping
+        CheckBox chocolateBox = findViewById(R.id.chocolate_checkbox);
+        hasChocolate = chocolateBox.isChecked();
+        //Assigns the 'price' variable the result of the 'calculatePrice' method
         price = calculatePrice();
+        //Displays the order summary created and returned by the 'createOrderSummary' method
         displayMessage(createOrderSummary());
     }
 
     /**
-     * Calculates the price of the order.
+     * This method calculates the price of the order.
      */
     private int calculatePrice() {
         return quantity * pricePerCup;
     }
 
     /**
-     * Creates and returns the order summary.
+     * This method creates and returns the order summary.
      */
     private String createOrderSummary () {
-        String orderSummary = "Name: Kaptain Kunal";
+        //Creates and returns order summary
+        String orderSummary = "Name: " + nameOfCustomer;
         orderSummary = orderSummary + "\nAdd whipped cream? " + hasWhippedCream;
+        orderSummary = orderSummary + "\nAdd chocolate? " + hasChocolate;
         orderSummary = orderSummary + "\nQuantity: " + quantity;
         orderSummary = orderSummary + "\nTotal: " + price + " HUF";
         orderSummary = orderSummary + "\nThank you!";
