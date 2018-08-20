@@ -22,8 +22,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
-    int pricePerCup = 5;
     int price;
+    int whippedCreamPrice = 1;
+    int chocolatePrice = 2;
     boolean hasWhippedCream;
     boolean hasChocolate;
     String nameOfCustomer;
@@ -58,14 +59,18 @@ public class MainActivity extends AppCompatActivity {
         //Get customer name from EditText name_field
         EditText editName = findViewById(R.id.name_field);
         nameOfCustomer = editName.getText().toString();
+
         //Figures out if the customer wants whipped cream topping
         CheckBox whippedCreamBox = findViewById(R.id.whipped_cream_checkbox);
         hasWhippedCream = whippedCreamBox.isChecked();
+
         //Figures out if the customer wants chocolate topping
         CheckBox chocolateBox = findViewById(R.id.chocolate_checkbox);
         hasChocolate = chocolateBox.isChecked();
+
         //Assigns the 'price' variable the result of the 'calculatePrice' method
         price = calculatePrice();
+
         //Displays the order summary created and returned by the 'createOrderSummary' method
         displayMessage(createOrderSummary());
     }
@@ -74,6 +79,19 @@ public class MainActivity extends AppCompatActivity {
      * This method calculates the price of the order.
      */
     private int calculatePrice() {
+        //Price for 1 cup of coffee
+        int pricePerCup = 5;
+
+        //Add whippedCreamPrice to pricePerCup, if the customer wants whipped cream topping
+        if (hasWhippedCream) {
+            pricePerCup = pricePerCup + whippedCreamPrice;
+        }
+
+        //Add chocolatePrice to pricePerCup, if the customer wants chocolate topping
+        if (hasChocolate) {
+            pricePerCup = pricePerCup + chocolatePrice;
+        }
+        //Calculate total order price
         return quantity * pricePerCup;
     }
 
