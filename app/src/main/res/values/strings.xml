@@ -7,4 +7,6 @@
     <string name="topping_second">Chocolate</string>
     <string name="button_order">Order</string>
     <string name="name_hint">Name</string>
+    <string name="toast_high_quantity">You cannot have more than 100 coffees!</string>
+    <string name="toast_low_quantity">You cannot have less than 1 coffee!</string>
 </resources>

@@ -15,13 +15,14 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 0;
+    int quantity = 1;
     int price;
     int whippedCreamPrice = 1;
     int chocolatePrice = 2;
@@ -40,21 +41,36 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the + button is clicked.
      */
     public void increment(View view) {
+        if (quantity == 100) {
+            //Show error message as a Toast
+            Toast.makeText(this, getString(R.string.toast_high_quantity), Toast.LENGTH_SHORT).show();
+            //Exit this method early, because there is nothing left to do
+            return;
+        }
         quantity = quantity + 1;
         displayQuantity(quantity);
     }
 
-    /**
-     * This method is called when the - button is clicked.
-     */
+
+        /**
+         * This method is called when the - button is clicked.
+         */
     public void decrement(View view) {
-        quantity = quantity - 1;
-        displayQuantity(quantity);
+        if (quantity == 1) {
+            //Show error message as a Toast
+            Toast.makeText(this, getString(R.string.toast_low_quantity), Toast.LENGTH_SHORT).show();
+            //Exit this method early, because there is nothing left to do
+            return;
+        }
+
+            quantity = quantity - 1;
+            displayQuantity(quantity);
     }
 
-    /**
-     * This method is called when the order button is clicked.
-     */
+
+        /**
+         * This method is called when the order button is clicked.
+         */
     public void submitOrder(View view) {
         //Get customer name from EditText name_field
         EditText editName = findViewById(R.id.name_field);
