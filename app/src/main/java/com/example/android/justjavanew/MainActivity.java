@@ -9,6 +9,8 @@
 package com.example.android.justjavanew;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,6 +18,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.net.URL;
 
 /**
  * This app displays an order form to order coffee.
@@ -89,7 +93,14 @@ public class MainActivity extends AppCompatActivity {
 
         //Displays the order summary created and returned by the 'createOrderSummary' method
         displayMessage(createOrderSummary());
-    }
+
+//        Intent intent = new Intent(Intent.ACTION_VIEW);
+//        intent.setData(Uri.parse("spotify:track:5nv03Gy380X8VLMIcH04d1"));
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        }
+        }
+
 
     /**
      * This method calculates the price of the order.
