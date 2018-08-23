@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent composeEmail = new Intent(Intent.ACTION_SENDTO);
         composeEmail.setData(Uri.parse("mailto:"));
-        composeEmail.putExtra(Intent.EXTRA_SUBJECT, "Monday Coffee Machine order for " + nameOfCustomer);
+        composeEmail.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject) + " " + nameOfCustomer);
         composeEmail.putExtra(Intent.EXTRA_TEXT, createOrderSummary());
         if (composeEmail.resolveActivity(getPackageManager()) != null) {
             startActivity(composeEmail);
@@ -133,12 +133,12 @@ public class MainActivity extends AppCompatActivity {
      */
     private String createOrderSummary () {
         //Creates and returns order summary
-        String orderSummary = "Name: " + nameOfCustomer;
-        orderSummary = orderSummary + "\nAdd whipped cream? " + hasWhippedCream;
-        orderSummary = orderSummary + "\nAdd chocolate? " + hasChocolate;
-        orderSummary = orderSummary + "\nQuantity: " + quantity;
-        orderSummary = orderSummary + "\nTotal: " + price + " HUF";
-        orderSummary = orderSummary + "\nThank you!";
+        String orderSummary = getString(R.string.ordersummary_name) + " " + nameOfCustomer;
+        orderSummary = orderSummary + "\n" + getString(R.string.topping_question_whipped) + " " + hasWhippedCream;
+        orderSummary = orderSummary + "\n" + getString(R.string.topping_question_chocolate) + " " + hasChocolate;
+        orderSummary = orderSummary + "\n" + getString(R.string.ordersummary_quantity) + " " + quantity;
+        orderSummary = orderSummary + "\n" + getString(R.string.ordersummary_total) + " " + price + " " + getString(R.string.ordersummary_currency);
+        orderSummary = orderSummary + "\n" + getString(R.string.ordersummary_thankyou);
         return orderSummary;
     }
 
@@ -150,9 +150,9 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + number);
     }
 
-    /**
-     * This method displays the given text on the screen.
-     */
+    // /**
+    // * This method displays the given text on the screen.
+    // */
     // private void displayMessage(String message) {
     //    TextView orderSummaryTextView = findViewById(R.id.order_summary_text_view);
     //    orderSummaryTextView.setText(message);

@@ -9,4 +9,16 @@
     <string name="name_hint">Name</string>
     <string name="toast_high_quantity">You cannot have more than 100 coffees!</string>
     <string name="toast_low_quantity">You cannot have less than 1 coffee!</string>
+    <string name="button_minus">-</string>
+    <string name="button_plus">+</string>
+
+    <string name="topping_question_whipped">Add whipped cream?</string>
+    <string name="topping_question_chocolate">Add chocolate?</string>
+    <string name="ordersummary_name">Name:</string>
+    <string name="ordersummary_quantity">Quantity:</string>
+    <string name="ordersummary_total">Total:</string>
+    <string name="ordersummary_currency">HUF</string>
+    <string name="ordersummary_thankyou">Thank you!</string>
+    <string name="email_subject">Monday Coffee Machine order for</string>
+
 </resources>

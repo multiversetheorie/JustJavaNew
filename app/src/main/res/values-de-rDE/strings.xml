@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Monday Coffee Machine</string>
+    <string name="header_first">Extras</string>
+    <string name="header_second">Anzahl</string>
+    <string name="header_third">Bestellung</string>
+    <string name="topping_first">Schlagsahne</string>
+    <string name="topping_second">Schokolade</string>
+    <string name="button_order">Bestellen</string>
+    <string name="name_hint">Name</string>
+    <string name="toast_high_quantity">Du kannst nicht mehr als 100 Kaffees bestellen!</string>
+    <string name="toast_low_quantity">Du müsstest mindestens 1 Kaffee bestellen!</string>
+    <string name="button_minus">-</string>
+    <string name="button_plus">+</string>
+    <string name="topping_question_whipped">Schlagsahne beigeben?</string>
+    <string name="topping_question_chocolate">Schokolade beigeben?</string>
+    <string name="ordersummary_name">Name:</string>
+    <string name="ordersummary_quantity">Anzahl:</string>
+    <string name="ordersummary_total">Total:</string>
+    <string name="ordersummary_currency">HUF</string>
+    <string name="ordersummary_thankyou">Danke schön!</string>
+    <string name="email_subject">Monday Coffee Machine Bestellung für</string>
+</resources>
