@@ -19,8 +19,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.net.URL;
-
 /**
  * This app displays an order form to order coffee.
  */
@@ -92,13 +90,21 @@ public class MainActivity extends AppCompatActivity {
         price = calculatePrice();
 
         //Displays the order summary created and returned by the 'createOrderSummary' method
-        displayMessage(createOrderSummary());
+        //displayMessage(createOrderSummary());
 
 //        Intent intent = new Intent(Intent.ACTION_VIEW);
 //        intent.setData(Uri.parse("spotify:track:5nv03Gy380X8VLMIcH04d1"));
 //        if (intent.resolveActivity(getPackageManager()) != null) {
 //            startActivity(intent);
 //        }
+
+        Intent composeEmail = new Intent(Intent.ACTION_SENDTO);
+        composeEmail.setData(Uri.parse("mailto:"));
+        composeEmail.putExtra(Intent.EXTRA_SUBJECT, "Monday Coffee Machine order for " + nameOfCustomer);
+        composeEmail.putExtra(Intent.EXTRA_TEXT, createOrderSummary());
+        if (composeEmail.resolveActivity(getPackageManager()) != null) {
+            startActivity(composeEmail);
+        }
         }
 
 
@@ -147,8 +153,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given text on the screen.
      */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
-    }
+    // private void displayMessage(String message) {
+    //    TextView orderSummaryTextView = findViewById(R.id.order_summary_text_view);
+    //    orderSummaryTextView.setText(message);
+    //}
 }
